@@ -69,12 +69,15 @@ end
 
 action :add do
   add_user(new_resource.username, new_resource.password, new_resource.roles, new_resource.database)
+  new_resource.updated_by_last_action(true)
 end
 
 action :delete do
   delete_user(new_resource.username, new_resource.database)
+  new_resource.updated_by_last_action(true)
 end
 
 action :modify do
   add_user(new_resource.username, new_resource.password, new_resource.roles, new_resource.database)
+  new_resource.updated_by_last_action(true)
 end
