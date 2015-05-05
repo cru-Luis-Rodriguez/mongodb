@@ -13,3 +13,12 @@ group :integration do
     gem 'test-kitchen',    '~> 1.2'
     gem 'kitchen-vagrant', '~> 0.14'
 end
+
+group :test do
+  gem "guard"
+  gem "guard-rspec"
+  gem "ruby_gntp"
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+end
