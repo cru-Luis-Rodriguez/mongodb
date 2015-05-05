@@ -74,19 +74,19 @@ else
 end
 
 # install
-package node[:mongodb][:package_name] do
+package node['mongodb']['package_name'] do
   options packager_opts
   action :install
-  version node[:mongodb][:package_version]
+  version node['mongodb']['package_version']
 end
 
 # Create keyFile if specified
-if node[:mongodb][:key_file_content]
-  file node[:mongodb][:config][:keyFile] do
-    owner node[:mongodb][:user]
-    group node[:mongodb][:group]
+if node['mongodb']['key_file_content']
+  file node['mongodb']['config']['keyFile'] do
+    owner node['mongodb']['user']
+    group node['mongodb']['group']
     mode  '0600'
     backup false
-    content node[:mongodb][:key_file_content]
+    content node['mongodb']['key_file_content']
   end
 end
