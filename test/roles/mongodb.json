@@ -1,0 +1,33 @@
+{
+
+"name": "mongodb",
+  "description": "mongodb server",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+     "mongodb" : {
+        "replicaset_name": "mongo-rs",
+        "cluster_name": "mongo-rs",
+        "auto_configure": {
+          "replicaset": true
+          }
+      },
+     "java": {
+        "install_flavor": "oracle",
+        "jdk_version": "7",
+        "oracle": {
+           "accept_oracle_download_terms": "true"
+          }
+      }
+  },
+  "chef_type": "role",
+  "run_list": [ ],
+  "env_run_lists": {
+    "stack": [
+      "recipe[mongodb::default]"
+    ]
+  }
+}
+

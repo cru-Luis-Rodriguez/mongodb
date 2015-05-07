@@ -4,12 +4,26 @@ driver:
 
 provisioner:
   name: chef_solo
+  environments_path: './test/environments'
+  roles_path: './test/roles'
 
 platforms:
   - name: ubuntu-12.04
+    driver_config:
+        box: opscode-ubuntu-12.04
+        box_url: http://files.vagrantup.com/precise32.box
 
 suites:
   - name: default
     run_list:
+      - role[mongodb]
+      - recipe[apt::default]
+      - recipe[python::default]
+      - recipe[runit::default]
+      - recipe[mongodb::10gen_repo]
       - recipe[mongodb::default]
+      - recipe[mongodb::replicaset]
     attributes:
+    provisioner:
+        solo.rb:
+            environment: stack
