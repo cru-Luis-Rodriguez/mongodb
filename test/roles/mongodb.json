@@ -11,7 +11,7 @@
         "replicaset_name": "mongo-rs",
         "cluster_name": "mongo-rs",
         "auto_configure": {
-          "replicaset": true
+          "replicaset": false
           }
       },
      "java": {
